@@ -1,10 +1,8 @@
 from django.urls import path
-from django.urls import URLPattern, path
-
-from .models import Usuario
-from .views import ListaUsuarioView, UsuarioCreateView
+from . import views
 
 urlpatterns = [
-    path('', ListaUsuarioView.as_view(), name='usuarios.index'),
-    path('registrar/', UsuarioCreateView.as_view(), name='usuarios.registro')
+    path('login/', views.login, name='login'),
+    path('cadastro/', views.cadastro, name='cadastro'),
+    path('valida_cadastro/', views.valida_cadastro, name = 'valida_cadastro')
 ]
