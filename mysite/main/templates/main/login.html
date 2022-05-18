@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script  src ="https://kit.fontawesome.com/1ab94d0eba.js" crossorigin="anonymous"></script>
-    <link rel="shortcut icon" href="img\zyro-image.png">
-    <link rel="stylesheet" href="css\login.css">
-    <title>Login</title>
-</head>
-<body>
+{%extends 'main/base.html'%}
+    {% block 'conteudo' %}
     <main class="container">
         <h2>Login</h2>
         <form>
@@ -28,14 +18,7 @@
 
         <div class="footer">
             <span>Ou faça login com: </span>
-            <div class="social-fields">
-                <div class="social-fields Google">
-                    <a href="#">
-                        <i class="fab fa-google">
-                            Gmail
-                        </i>
-                    </a>
-                </div>
+            <a href="{% url "social:begin" "google-oauth2" %}">Login com o Google </a>
                 <div class="social-fields facebook">
                         <a href="#">
                             <i class="fab fa-facebook">
@@ -47,6 +30,5 @@
         </div>
 
     </main>
-    
-</body>
-</html>
+    {% endblock 'conteudo' %}    
+

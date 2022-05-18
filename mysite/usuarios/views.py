@@ -7,7 +7,7 @@ from hashlib import sha256
 
 
 def login(request):
-    return HttpResponse('login')
+    return render(request, 'login.html')
 
 
 def cadastro(request):
@@ -18,8 +18,18 @@ def valida_cadastro(request):
     nome = request.POST.get('nome')
     sobrenome = request.POST.get('sobrenome')
     email = request.POST.get('email')
-    senha = request.POST.get('celular')
-    
+    senha = request.POST.get('senha')
+
+    usuario = Usuario.objects.filter(email = email)
+
     usuario = Usuario(nome=nome, sobrenome=sobrenome, email=email, senha=senha)
     usuario.save()
-    
+
+
+    return HttpResponse(f"{nome} {sobrenome} {senha} {email} ")
+
+def validar_login(request):
+    email = request.POST.get('email')
+    senha = request.POST.get('senha')
+
+    return HttpResponse(f"{email} {senha}")

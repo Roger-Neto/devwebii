@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os 
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'cursos',
-    'usuarios'
-    ]
+    'usuarios',
+    'social_django'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,6 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2'
+]
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -126,3 +130,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+ALLOWED_HOSTS = ['flrsite.com', 'localhost', '127.0.0.1']
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '291150015793-1idv1bpk2ah0mkh4ph5f29k4akm5fd9f.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
