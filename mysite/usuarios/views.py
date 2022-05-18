@@ -31,5 +31,5 @@ def valida_cadastro(request):
 def validar_login(request):
     email = request.POST.get('email')
     senha = request.POST.get('senha')
-
+    
     return HttpResponse(f"{email} {senha}")
