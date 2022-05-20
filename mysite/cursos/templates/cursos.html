@@ -2,8 +2,10 @@
 
 {% block 'conteudo'%}
 <ul>
-    {% for  in  %}
-    
+    {% for cursos in CursosDisponiveis %}
+    <span> <a href="/cursos/{{cursos.id}}">{{cursos.nome_curso}}</a></span>
     {% endfor %}
 </ul>
+
+Olá
 {% endblock 'conteudo'%}
