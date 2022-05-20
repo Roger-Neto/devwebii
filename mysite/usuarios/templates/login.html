@@ -6,6 +6,17 @@
 
 <div class='container'>
     <br>
+    {% if status == '1' %}
+    <div class="alert alert-danger" role="alert">
+        E-mail ou senha inválidos!
+      </div>
+    {% endif %}
+
+    {% if status == '2' %}
+    <div class="alert alert-danger" role="alert">
+        Faça login antes de acessar o sistema.
+      </div>
+    {% endif %}
     <div class="row">
 
         <div class="col-md-3"></div>
@@ -21,7 +32,7 @@
                 <label for="">Senha</label>
                 <input name="senha" class="form-control" type="password" placeholder="Digite sua Senha">
 
-                
+                <a href="{% url "social:begin" "google-oauth2" %}">Login com o Google </a>
                 
                 <br>
                 <input class="btn btn-info btn-l" type="submit" value="Entrar">

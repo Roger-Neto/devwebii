@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-l&*5y5b&aisuwpr%1hlgy5x%40fgi%d@56@o&#djakt-o2ame3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['flrsite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -75,9 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-AUTHENTICATION_BACKENDS = [
-    'social_core.backends.google.GoogleOAuth2'
-]
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -131,7 +129,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ALLOWED_HOSTS = ['flrsite.com', 'localhost', '127.0.0.1']
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend'
+]
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '291150015793-1idv1bpk2ah0mkh4ph5f29k4akm5fd9f.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
